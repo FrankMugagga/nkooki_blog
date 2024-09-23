@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  def index; end
+  def index
+    @users = User.all 
+  end
 
-  def show; end
-
-  def edit; end
-
-  def create; end
-
-  def update; end
+  def show
+    @user = User.find_by()
+  end
 
   def delete; end
 end
