@@ -5,4 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :bio, presence: true, length: { 
+    maximum: 1000,
+    message: "%{count} characters is the maximum allowed" }
+  posts_counter, numericality: { on;y_integer: true }
+  validates :password, presence: true
+  validates :email, presence:true, uniqueness: true
 end
