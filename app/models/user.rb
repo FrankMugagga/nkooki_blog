@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :bio, presence: true, length: { 
     maximum: 1000,
     message: "%{count} characters is the maximum allowed" }
-  posts_counter, numericality: { on;y_integer: true }
+  posts_counter, numericality = { only_integer: true }
   validates :password, presence: true
   validates :email, presence:true, uniqueness: true
 end
