@@ -1,0 +1,26 @@
+<section class='d-flex justify-content-center'>
+  <div class='card w-75 border-success'>
+    <div class='card-header d-flex justify-content-center'>
+      <h2 class='text-light'>Edit post</h2>
+    </div>
+
+    <div class='card-body'>
+      <%= form_with(model: [@user, @post], url: user_post_path(@user, @post), method: :patch) do |form| %>
+        <%= form.label :title %>
+        <br />
+        <%= form.text_field :title, required: true %>
+    
+        <br />
+        <%= form.label :content %>
+        <br />
+        <%= form.text_area :content, required: true %>
+
+        <div class='d-flex justify-content-center'>
+          <%= form.submit "Update post", class: 'btn btn-outline-primary' %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</section>
+

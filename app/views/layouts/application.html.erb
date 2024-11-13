@@ -22,10 +22,12 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <%= render 'partials/header' %>
-    <% end %>
-    <%= yield %>
+    <div class='container'>
+      <% if user_signed_in? %>
+        <%= render 'partials/header' %>
+      <% end %>
+      <%= yield %>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

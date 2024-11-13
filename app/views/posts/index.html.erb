@@ -1,0 +1,22 @@
+<br />
+<% @posts.each do |post| %>
+  <div class='d-flex justify-content-center'>
+  <div class='w-75 d-flex justify-content-end'>
+     <div>
+       <%= link_to 'edit', edit_user_post_path(post.user.id, post), class:'btn btn-outline-primary m-1' %>
+     </div>
+     <div>
+       <%= link_to 'Delete', user_post_path(post.user.id, post.id), data: {
+          turbo_method: :delete,
+          turbo_confirm: 'Are you sure?'
+       }, class:'btn btn-outline-primary m-1' %>
+     </div>
+
+     <div>
+       <%= link_to 'comment', new_user_post_comment_path(post.user.id, post.id), class:'btn btn-outline-primary m-1'%>
+     </div>
+   </div>
+ </div>
+    <%= render 'partials/post', post: post %>
+   
+<% end %>

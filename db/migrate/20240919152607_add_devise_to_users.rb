@@ -36,7 +36,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :photo
       t.text :bio
-      t.integer :posts_counter
+      t.integer :posts_counter, default: 0
       t.string :twitter
 
       # Uncomment below if timestamps were not included in your original model.

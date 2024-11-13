@@ -7,11 +7,17 @@ Rails.application.routes.draw do
     end
 
     unauthenticated :user do
-      root to: "splash#index", as: :unauthenticated_root
+      root to: "devise/sessions#create", as: :unauthenticated_root
     end
   end
 
-  resources :users
+  resources :users do
+    resources :posts do
+      resources :comments, only: [:new, :create, :destroy]
+      resources :likes, only: [:create]
+    end
+  end
 
-  get 'splash/index', as: :splash
+  resources :posts, only: [:index]
+
 end

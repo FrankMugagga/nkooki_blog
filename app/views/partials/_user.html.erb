@@ -1,0 +1,41 @@
+<section class='container'>
+  <div class='d-flex user_profile_container'>
+    <div class='d-flex justify-content-center align-items-center profile_image_container'> 
+      <img src= '<%= user.photo %>' alt='profile pic' >
+    </div>
+    <div class='d-flex flex-column justify-content-center align-items-center w-100'>
+      <div class='d-flex justify-content-between w-75'>
+        <div class='w-50 d-flex justify-content-between'>
+          <span><%= user.first_name %></span>
+          <span><%= user.last_name %></span>
+        </div>
+        <%= link_to 'All posts', user_posts_path(user.id) %>
+
+      </div>
+      <div class='d-flex justify-content-end w-100'>
+        <span class='edit_link'>
+          <%= link_to 'Show', user_path(user.id) %>
+        </span>
+        <span class='edit_link'>
+          <%= link_to 'Edit', edit_user_registration_path %>
+        </span>
+        <span>
+          <%= link_to 'Delete', user_path(current_user), data: {
+            turbo_method: :delete,
+            turbo_confirm: 'Are you sure?'
+          } %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class='card-footer d-flex justify-content-between'>
+    <div>
+      Posts: <%= user.posts_counter %>
+    </div>
+    <div>
+      Joined: <%= user.created_at.in_time_zone(Time.zone).strftime("%B %d, %Y %I:%M %p") %>
+    </div>
+  </div>
+</section>
+<br/>

@@ -1,0 +1,17 @@
+<h1>posts show</h1>
+<br />Title: <%= @post.title %>
+<br />Content: <%= @post.content %>
+<br />
+Comments: 
+<% @comments.each do |comment| %>
+    <%= comment.comment %>
+<% end %>
+<br />
+
+<%= form_with(model: [@user, @post, @like], local: true) do |form| %>
+  <%= submit_tag "Like" %>
+<% end %>
+
+
+  
+  
