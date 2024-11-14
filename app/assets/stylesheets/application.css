@@ -28,3 +28,9 @@ ul {
     border: 2px dotted green;
 }
 
+.posts_user {
+    padding: 10px;
+    height: 100px;
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.1), rgba(0, 0, 0, 0.1
+    ), rgba(0, 128, 0, 0.1));
+}
