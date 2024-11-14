@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @post = @user.posts.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
-
+    
     if @comment.save
       @post.increment!(:comments_counter)
       redirect_to user_post_path(@user, @post), notice: 'Comment was successfully created'
