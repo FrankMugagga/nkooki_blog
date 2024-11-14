@@ -1,15 +1,16 @@
+<br />
 <section class='d-flex justify-content-center'>
   <div class='card w-75 border-success'>
-    <div class='card-header d-flex justify-content-center'>
-      <h2 class='text-light'>Log in</h2>
+    <div class='card-header d-flex justify-content-center header'>
+      <h2 class='text-success'>Log in</h2>
     </div>
 
     <div class='card-body'>
       <%= form_with(model: [@user, @post, @comment], local: true) do |form| %>
-        <div>
+        <div class="form-group">
           <%= form.label :comment %>
           <br />
-          <%= form.text_area :comment, rows: 6, columns: 6 %>
+          <%= form.text_area :comment, class:'form-control post_content' %>
         </div>
   
         <div class='d-flex justify-content-center'>

@@ -1,8 +1,24 @@
-<h1>posts show</h1>
-<br />Title: <%= @post.title %>
-<br />Content: <%= @post.content %>
 <br />
-Comments: 
+<section>
+  <div class='d-flex justify-content-between'>
+    <div>Post index: <%= @post.id%> </div>
+    <div>
+      <span>Likes: <%= @post.likes.count %></span>
+      <span>Comments: <%= @post.comments_counter %></span>
+    </div>
+  </div>
+  <br/>
+<div>
+  <div><%= @post.title %></div>
+  (By: <%= @post.user.first_name %> <%= @post.user.last_name %> )
+  <div>
+    Content: <%= @post.content %>
+  </div>
+</div>
+
+<br />
+Comments:
+<br />
 <% @comments.each do |comment| %>
     <%= comment.comment %>
 <% end %>
@@ -12,6 +28,7 @@ Comments:
   <%= submit_tag "Like" %>
 <% end %>
 
+</section>
 
   
   
