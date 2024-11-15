@@ -23,4 +23,4 @@ test:
 
 production:
   <<: *default
-  database: nkooki_blog_production
+  url: <%= ENV['DATABASE_URL'] %>
