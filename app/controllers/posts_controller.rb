@@ -54,8 +54,9 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(@user), alert: 'Post could not be deleted'
     end
   end
-  
+
   private
+
   def post_params
     params.require(:post).permit(:title, :content)
   end
