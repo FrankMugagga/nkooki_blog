@@ -10,6 +10,11 @@
           <p>no photo!</p>
         <% end %>
       </div>
+<% if @user.image? %>
+  <%= image_tag @user.image.url %>
+  <%else%>
+  <p>noooo image</p>
+<% end %>
       <div class='d-flex flex-column justify-content-around w-75'>
         <div>
           <%= @user.first_name %>
