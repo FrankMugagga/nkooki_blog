@@ -1,0 +1,30 @@
+<br />
+<form class="form-inline my-2 my-lg-0 d-flex justify-content-end" action="<%= users_path %>" method="get">
+  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Users" aria-label="Search" value="<%= params[:search] %>">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+<br />
+<div class='container'>
+
+  <% if params[:search].present? %>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <div class='users'>
+          <%= render 'partials/user', user: user %>
+        </div> <br />
+    <% end %>
+  <% else %>
+    <div class='users'>
+      <p>No results found.</p>
+    </div>
+    <% end %>
+  <% else %>
+    <% @users.each do |user| %>
+      <div class='users'>
+        <%= render 'partials/user', user: user %>
+      </div> <br />
+    <% end %>
+  <% end %>
+  
+</div>

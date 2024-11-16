@@ -1,0 +1,26 @@
+<ul class='d-flex justify-content-center'>
+  <li class='w-75 p-1 bg-light rounded'>
+    <h5 class='d-flex justify-content-center'>
+    <%= post.title %>
+    <br />
+    By: (<%= post.user.first_name %> <%= post.user.last_name %>)
+    </h5>
+    
+    <div>
+      <% if post.content.present? && post.content.length > 5 %>
+        <%= post.content.slice(0..5) %>...
+        <%= link_to 'more', user_post_path(post.user.id, post) %>
+      <% else %>
+        <%= post.content %>
+      <% end %>      
+    </div>    
+    
+    <div class='d-flex justify-content-end'>
+      status: <%= post.status %>
+    </div>
+    <div>
+      Comments: <%= post.comments_counter %>
+      Likes: <%= post.likes.count %>
+    </div>  
+  </li>
+</ul>
